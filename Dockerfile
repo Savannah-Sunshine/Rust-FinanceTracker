@@ -18,3 +18,10 @@ FROM debian:bookworm-slim AS runtime
 WORKDIR /app
 COPY --from=builder /app/target/release/rust-app /usr/local/bin
 ENTRYPOINT ["/usr/local/bin/rust-app"] 
+
+# Make a local development database with Postgres
+# FROM postgres:15 AS database
+# ENV POSTGRES_USER=myuser
+# ENV POSTGRES_PASSWORD=mypassword
+# ENV POSTGRES_DB=mydatabase
+# EXPOSE 5432
